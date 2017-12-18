@@ -65,6 +65,16 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 
 ![picture alt](https://github.com/Ompragash/Hands-On-Ansible/blob/master/images/Ansible_Playbook.png)
 
+### 5. Ansible Variables
+* Ansible supports variables that can be used to store values that can be reused throughout files in an entire Ansible project.
+* Simply we can manage dynamic values in our project.
+* Quotes are mandatory when we use variables is used as the first element.
+* Some examples of values that variables might contain include:
+  1. Users to create.
+  2. Packages to install.
+  3. Services to restart.
+  4. Files to remove.
+  5. Archives to retrieve from the Internet.
 
 
   
