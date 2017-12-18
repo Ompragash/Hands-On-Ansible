@@ -13,7 +13,7 @@ Ansible is an open source IT configuration management, deployment, and orchestra
 * The modules referenced in the playbook are copied to the managed hosts.
 * Then these modules are executed, in order, with the arguments specified in the playbook.
 
-![picture alt](https://github.com/Ompragash/Hands-On-Ansible/blob/master/images/ansible-architecture.png)
+![picture alt](https://github.com/Ompragash/Hands-On-Ansible/blob/master/images/ansible-architecture-new.jpg)
 
 ## Ansible Core Components
 
