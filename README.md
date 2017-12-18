@@ -85,6 +85,36 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
     #### Displaying facts from a hosts:
     
     $ *ansible host-pattern -m setup*
+    
+### 7. Ansible Roles
+* Roles provide Ansible with a way to load tasks, handlers, and variables from external files.
+* Static files and templates can also be associated and referenced by a role.
+* Roles can be written so they are general purpose and can be reused.
+* Some basic advantages of roles:
+  1. Roles group content, allowing easy sharing of code with others.
+  2. Roles can be written that define the essential elements of a system type: web server, database server, git repository, or other purpose.
+  3. Roles make larger projects more manageable.
+  4. Roles can be developed in parallel by different administrators.
+  
+###  8. Ansible Galaxy
+* Ansible Galaxy [https://galaxy.ansible.com] is a public library of Ansible roles written by a variety of Ansible administrators and users. 
+* It is an archive that contains thousands of Ansible roles and it has a searchable database that helps Ansible users identify roles that might help   them accomplish an administrative task. 
+* It includes links to documentation and videos for new Ansible users and role developers.
+* Ansible-galaxy search subcommand searches Ansible Galaxy for the string specified as an argument. The --author, --platforms, and --galaxy-tags options can be used to narrow the search results.
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+    
+    
 
 
   
