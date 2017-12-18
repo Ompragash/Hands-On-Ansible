@@ -37,6 +37,12 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 * Modules control system resources like services, packages, files, system commands, etc. 
 * It can be executed directly in CLI or through playbooks.
 * Modules are language independent and idempotent(Avoid changes to system unless needed).
+* There are three types of Ansible modules they are Core, Extras, and Custom modules
+  * Core and Extras modules are always available. Ansible looks for custom modules on the control node in directories defined by the $ANSIBLE_LIBRARY environment variable.
+
+
+
+
 
 
 
