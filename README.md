@@ -18,7 +18,25 @@ Ansible is an open source IT configuration management, deployment, and orchestra
 ## Ansible Core Components
 
 ### 1. INVENTORIES
-    An inventory is a text file listing hostnames usually grouped by functionality.
+An inventory is a text file listing hostnames usually grouped by functionality. Files are organized as hosts and groups. A set of hosts can be under a group name. A host can be in more than one group.
+    
+**Recommendations on the Inventory**
+* Give inventory nodes a human-friendly name rather than just putting the IP addresses or DNS hostnames.
+
+### Types of Ansible Inventories:
+#### 1. Static Inventory
+* Static inventory is default inventory and is defined in the /etc/ansible/ansible.cfg file. 
+#### 2. Dynamic Inventory
+* Dynamic inventory to pull files from dynamic sources and cloud.
+* If you have the setup where you add and remove the hosts very frequently, then keeping your inventory always up-to-date become a little bit problematic. In such case Dynamic inventory comes into picture.
+* These are generally Python or Shell scripts for dynamic environments (for example cloud environments).
+
+
+        
+
+
+
+
 
 
 
