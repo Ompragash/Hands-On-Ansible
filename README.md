@@ -42,7 +42,7 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
   #### Running ad hoc commands
  * To execute an ad hoc command, administrators need to execute the ansible command using the following syntax:
  
-    $ ansible host-pattern -m module [-a 'module argument'] [-i inventory]
+    $ *ansible host-pattern -m module [-a 'module argument']* *[-i inventory]*
   
 ### 3. Ansible Configuration File
 * Simply Configuration file modifies the behaviour of ansible.
@@ -51,8 +51,25 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 * The SSH protocol requires the connection to be established using an account on the managed host.
 * This account is referred by Ansible as the remote user and is defined using the remote_user parameter under the [defaults] section of the configuration file. 
 
-    $ ansible node -m ping
+    $ *ansible node -m ping*
 * The recommended practice is to create an ansible.cfg file in a directory from which  you run Ansible commands.
+### 4. Ansible Playbook
+* Playbooks are executed using the *ansible-playbook* command.
+  * Playbook contains Plays
+  * Plays contains Tasks
+  * Tasks call Modules
+  * Tasks run sequentially
+  * Tasks triggers handlers
+  * Handlers run once at the end
+* Complex playbooks may contain a long list of tasks.With Ansible version 2.0, *blocks* offer another alternative to task organization.
+
+![picture alt](https://github.com/Ompragash/Hands-On-Ansible/blob/master/images/Ansible_Playbook.png)
+
+
+
+  
+  
+
     
     
 
