@@ -1,0 +1,9 @@
+---
+- name: failed_when Example
+  hosts: localhost
+  tasks:
+  - command: /sbin/iscsiadm -m session
+    register: session_out
+    failed_when: session_out.rc not in (0, 21)
+
+
