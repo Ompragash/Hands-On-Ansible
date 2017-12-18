@@ -102,6 +102,15 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 * It includes links to documentation and videos for new Ansible users and role developers.
 * Ansible-galaxy search subcommand searches Ansible Galaxy for the string specified as an argument. The --author, --platforms, and --galaxy-tags options can be used to narrow the search results.
 
+### 9. Ansible Vault
+Vault is used to protect sensitive data in your playbooks.
+
+  * To create a new encrypted data file, run the following command:
+    *  $ _ansible-vault create secret.yml_
+    
+Similarly we can use edit, encrypt, decrypt and rekey, for more details on how to work with vault files, check manual page:
+
+   $ _man ansible-vault_
 
 
 
