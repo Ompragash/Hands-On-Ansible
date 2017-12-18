@@ -24,9 +24,9 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 * Give inventory nodes a human-friendly name rather than just putting the IP addresses or DNS hostnames.
 
 ### Types of Ansible Inventories:
-#### 1. Static Inventory
+####  1. Static Inventory
 * Static inventory is default inventory and is defined in the /etc/ansible/ansible.cfg file. 
-#### 2. Dynamic Inventory
+####  2. Dynamic Inventory
 * Dynamic inventory to pull files from dynamic sources and cloud.
 * If you have the setup where you add and remove the hosts very frequently, then keeping your inventory always up-to-date become a little bit problematic. In such case Dynamic inventory comes into picture.
 * These are generally Python or Shell scripts for dynamic environments (for example cloud environments).
@@ -39,6 +39,15 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 * Modules are language independent and idempotent(Avoid changes to system unless needed).
 * There are three types of Ansible modules they are Core, Extras, and Custom modules
   * Core and Extras modules are always available. Ansible looks for custom modules on the control node in directories defined by the $ANSIBLE_LIBRARY environment variable.
+  #### Running ad hoc commands
+ * To execute an ad hoc command, administrators need to execute the ansible command using the following syntax:
+ 
+    $ ansible host-pattern -m module [-a 'module argument'] [-i inventory]
+  
+### 3. Ansible Configuration File
+* Simply Configuration file modifies the behaviour of ansible.
+* 
+  
 
 
 
