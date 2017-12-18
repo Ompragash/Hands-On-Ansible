@@ -1,0 +1,15 @@
+---
+- name: Block_Rescue
+  hosts: superstar.ansible.com
+  tasks:
+  - block:
+      - name: Download file
+        get_url:
+          url: http://ironman.marvel.com
+          dest: /var/www/html/inaccess.html
+
+    rescue:
+
+      - copy:
+          content: Webpage is not accessible
+          dest: /var/www/html/inaccess.html
