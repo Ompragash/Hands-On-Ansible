@@ -31,6 +31,16 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 * If you have the setup where you add and remove the hosts very frequently, then keeping your inventory always up-to-date become a little bit problematic. In such case Dynamic inventory comes into picture.
 * These are generally Python or Shell scripts for dynamic environments (for example cloud environments).
 
+![picture alt](https://github.com/Ompragash/Hands-On-Ansible/blob/master/images/static-inventory-example.png)
+
+### 2. Ansible Modules
+* Modules control system resources like services, packages, files, system commands, etc. 
+* It can be executed directly in CLI or through playbooks.
+* Modules are language independent and idempotent(Avoid changes to system unless needed).
+
+
+
+
  
 
 
