@@ -75,6 +75,16 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
   3. Services to restart.
   4. Files to remove.
   5. Archives to retrieve from the Internet.
+  
+### 6. Ansible Facts
+* Ansible facts are variables that are automatically discovered by Ansible from a managed host.
+* Facts are pulled by the setup module and contain useful information stored into variables that administrators can reuse.
+* Fact variables can be used as part of playbooks, in conditionals, loops, or any other dynamic statement that depends on a value for a managed host.
+* We can also create custom facts and push them to a managed node.
+
+    #### Displaying facts from a hosts:
+    
+    $ *ansible host-pattern -m setup*
 
 
   
