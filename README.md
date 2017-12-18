@@ -18,8 +18,8 @@ Ansible is an open source IT configuration management, deployment, and orchestra
 ## Ansible Core Components
 
 ### 1. INVENTORIES
- 
-  1.An inventory is a text file listing hostnames usually grouped by functionality.
+    An inventory is a text file listing hostnames usually grouped by functionality.
+
 
 
 
