@@ -17,7 +17,7 @@ Ansible is an open source IT configuration management, deployment, and orchestra
 
 ## Ansible Core Components
 
-### 1. INVENTORIES
+### 1. Inventory
 An inventory is a text file listing hostnames usually grouped by functionality. Files are organized as hosts and groups. A set of hosts can be under a group name. A host can be in more than one group.
     
 **Recommendations on the Inventory**
@@ -65,6 +65,65 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 
 ![picture alt](https://github.com/Ompragash/Hands-On-Ansible/blob/master/images/Ansible_Playbook.png)
 
+### 5. Ansible Variables
+* Ansible supports variables that can be used to store values that can be reused throughout files in an entire Ansible project.
+* Simply we can manage dynamic values in our project.
+* Quotes are mandatory when we use variables is used as the first element.
+* Some examples of values that variables might contain include:
+  1. Users to create.
+  2. Packages to install.
+  3. Services to restart.
+  4. Files to remove.
+  5. Archives to retrieve from the Internet.
+  
+### 6. Ansible Facts
+* Ansible facts are variables that are automatically discovered by Ansible from a managed host.
+* Facts are pulled by the setup module and contain useful information stored into variables that administrators can reuse.
+* Fact variables can be used as part of playbooks, in conditionals, loops, or any other dynamic statement that depends on a value for a managed host.
+* We can also create custom facts and push them to a managed node.
+
+    #### Displaying facts from a hosts:
+    
+    $ *ansible host-pattern -m setup*
+    
+### 7. Ansible Roles
+* Roles provide Ansible with a way to load tasks, handlers, and variables from external files.
+* Static files and templates can also be associated and referenced by a role.
+* Roles can be written so they are general purpose and can be reused.
+* Some basic advantages of roles:
+  1. Roles group content, allowing easy sharing of code with others.
+  2. Roles can be written that define the essential elements of a system type: web server, database server, git repository, or other purpose.
+  3. Roles make larger projects more manageable.
+  4. Roles can be developed in parallel by different administrators.
+  
+###  8. Ansible Galaxy
+* Ansible Galaxy [https://galaxy.ansible.com] is a public library of Ansible roles written by a variety of Ansible administrators and users. 
+* It is an archive that contains thousands of Ansible roles and it has a searchable database that helps Ansible users identify roles that might help   them accomplish an administrative task. 
+* It includes links to documentation and videos for new Ansible users and role developers.
+* Ansible-galaxy search subcommand searches Ansible Galaxy for the string specified as an argument. The --author, --platforms, and --galaxy-tags options can be used to narrow the search results.
+
+### 9. Ansible Vault
+Vault is used to protect sensitive data in your playbooks.
+
+  * To create a new encrypted data file, run the following command:
+    *  $ _ansible-vault create secret.yml_
+    
+Similarly we can use edit, encrypt, decrypt and rekey, for more details on how to work with vault files, check manual page:
+
+   $ _man ansible-vault_
+
+
+
+
+
+
+  
+  
+  
+  
+  
+    
+    
 
 
   
