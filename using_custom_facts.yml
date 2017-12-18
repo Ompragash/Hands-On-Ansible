@@ -1,0 +1,11 @@
+---
+- name: Using the Installed Custom Facts
+  hosts: localhost
+  tasks:
+  - name: Install packages on {{ansible_fqdn}}
+    dnf: 
+      name: 
+        - "{{ansible_local.custom.packages.web}}"
+        - "{{ansible_local.custom.packages.db}}"
+      state: latest
+
