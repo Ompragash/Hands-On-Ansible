@@ -46,8 +46,15 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
   
 ### 3. Ansible Configuration File
 * Simply Configuration file modifies the behaviour of ansible.
-* 
-  
+* When an ad hoc command is executed, First, the Ansible configuration file is consulted for various parameters.
+* By default, connections to managed hosts are initiated using the SSH protocol. 
+* The SSH protocol requires the connection to be established using an account on the managed host.
+* This account is referred by Ansible as the remote user and is defined using the remote_user parameter under the [defaults] section of the configuration file. 
+
+    $ ansible node -m ping
+* The recommended practice is to create an ansible.cfg file in a directory from which  you run Ansible commands.
+    
+    
 
 
 
