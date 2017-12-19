@@ -1,0 +1,12 @@
+---
+- name: Create users using vault
+  hosts: localhost 
+  no_log: True
+  vars_files:
+    - vars/secret.yml
+  tasks:
+  - name: Creating users
+    user:
+      name: "{{item.name}}"
+      password: "{{item.pw | password_hash('sha512')}}"
+    with_items: "{{newusers}}"
