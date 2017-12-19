@@ -14,3 +14,7 @@
         copy:
           content: "Package is not availabel"
           dest: /tmp/package.html
+        register: output
+
+      - debug:
+          var: output
