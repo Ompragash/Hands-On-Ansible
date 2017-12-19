@@ -1,15 +1,16 @@
 ---
 - name: Block_Rescue
-  hosts: superstar.ansible.com
+  hosts: localhost 
   tasks:
   - block:
-      - name: Download file
-        get_url:
-          url: http://ironman.marvel.com
-          dest: /var/www/html/inaccess.html
+      - name: Install package
+        dnf:
+          name: xyz
+          state: latest
 
     rescue:
 
-      - copy:
-          content: Webpage is not accessible
-          dest: /var/www/html/inaccess.html
+      - name:  Error capture file available at /tmp/package.html
+        copy:
+          content: "Package is not availabel"
+          dest: /tmp/package.html
