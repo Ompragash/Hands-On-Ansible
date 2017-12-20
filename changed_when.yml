@@ -1,0 +1,19 @@
+---
+- hosts: node
+  become: true
+  tasks:
+  - name: copy content
+    copy:
+      content: "Marvel movies are always Awesome!"
+      dest: /var/www/html/marvel.html
+    register: out
+    changed_when: out.changed  == False
+    notify:
+      - restart httpd
+
+
+  handlers:
+  - name: restart httpd
+    service:
+      name: httpd
+      state: restarted
