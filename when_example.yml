@@ -1,0 +1,10 @@
+---
+- name: Install htop
+  hosts: localhost 
+  become: True
+  tasks:
+  - name: install htop
+    dnf:
+      name: htop
+      state: latest
+    when: ansible_distribution == 'RedHat'
