@@ -1,0 +1,7 @@
+---
+# handlers file for apache
+- name: restart httpd 
+  service:
+    name: "{{packages.web}}"
+    state: restarted
+

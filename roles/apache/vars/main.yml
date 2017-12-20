@@ -1,0 +1,6 @@
+---
+# vars file for apache
+packages:
+  web: httpd
+  wall: firewalld
+rule: http
