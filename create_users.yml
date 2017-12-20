@@ -2,8 +2,9 @@
 - name: Create users using vault
   hosts: localhost 
   #no_log: True
+  become: True
   vars_files:
-    - vars/secret.yml
+    - secret.yml
   tasks:
   - name: Creating users
     user:
