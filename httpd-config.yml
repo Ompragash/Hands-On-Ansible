@@ -1,0 +1,7 @@
+---
+- name: Apache in game
+  hosts: node[1] 
+  become: True
+  tasks:
+  roles:
+    - apache
