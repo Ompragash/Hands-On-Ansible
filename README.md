@@ -24,9 +24,9 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 * Give inventory nodes a human-friendly name rather than just putting the IP addresses or DNS hostnames.
 
 ### Types of Ansible Inventories:
-####  1. Static Inventory
+####  a) Static Inventory
 * Static inventory is default inventory and is defined in the /etc/ansible/ansible.cfg file. 
-####  2. Dynamic Inventory
+####  b) Dynamic Inventory
 * Dynamic inventory to pull files from dynamic sources and cloud.
 * If you have the setup where you add and remove the hosts very frequently, then keeping your inventory always up-to-date become a little bit problematic. In such case Dynamic inventory comes into picture.
 * These are generally Python or Shell scripts for dynamic environments (for example cloud environments).
@@ -41,9 +41,11 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
   * Core and Extras modules are always available. Ansible looks for custom modules on the control node in directories defined by the $ANSIBLE_LIBRARY environment variable.
   #### Running ad hoc commands
  * To execute an ad hoc command, administrators need to execute the ansible command using the following syntax:
- 
-    $ *ansible host-pattern -m module [-a 'module argument']* *[-i inventory]*
-  
+
+```bash
+ansible host-pattern -m module [-a 'module argument'] [-i inventory]
+```
+
 ### 3. Ansible Configuration File
 * Simply Configuration file modifies the behaviour of ansible.
 * When an ad hoc command is executed, First, the Ansible configuration file is consulted for various parameters.
@@ -53,6 +55,7 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 
     $ *ansible node -m ping*
 * The recommended practice is to create an ansible.cfg file in a directory from which  you run Ansible commands.
+
 ### 4. Ansible Playbook
 * Playbooks are executed using the *ansible-playbook* command.
   * Playbook contains Plays
@@ -65,7 +68,29 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 
 ![picture alt](https://github.com/Ompragash/Hands-On-Ansible/blob/master/images/Ansible_Playbook.png)
 
-### 5. Ansible Variables
+### 5. Ansible Roles
+* Roles provide Ansible with a way to load tasks, handlers, and variables from external files.
+* Static files and templates can also be associated and referenced by a role.
+* Roles can be written so they are general purpose and can be reused.
+* Some basic advantages of roles:
+  1. Roles group content, allowing easy sharing of code with others.
+  2. Roles can be written that define the essential elements of a system type: web server, database server, git repository, or other purpose.
+  3. Roles make larger projects more manageable.
+  4. Roles can be developed in parallel by different administrators.
+
+### 6. Ansible Tasks
+* Tasks are the individual actions that Ansible performs, such as copying a file, installing a package, or restarting a service. 
+* Tasks can be grouped together into playbooks or roles.
+
+### 7. Ansible Collections
+* Ansible Collections are a way of packaging and distributing collections of related Ansible content, including playbooks, roles, modules, and plugins.
+* They allow for sharing and reuse of Ansible content across different projects and organizations. 
+* Collections can be installed using `ansible-galaxy` and once installed, their modules can be used in playbooks like any other Ansible module.
+```bash
+ansible-galaxy collection install community.general
+```
+  
+### 8. Ansible Variables
 * Ansible supports variables that can be used to store values that can be reused throughout files in an entire Ansible project.
 * Simply we can manage dynamic values in our project.
 * Quotes are mandatory when we use variables is used as the first element.
@@ -75,8 +100,17 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
   3. Services to restart.
   4. Files to remove.
   5. Archives to retrieve from the Internet.
-  
-### 6. Ansible Facts
+
+### 9. Ansible Template
+* In Ansible, a template is a file that has placeholders, which can be filled in with specific values during the playbook execution.
+* Templates allow you to create reusable configuration files, scripts, or any other text file that needs to be customized for different systems or environments.
+* Templates use Jinja2, a powerful templating engine, to provide a flexible and dynamic way to generate text files. The Jinja2 syntax allows you to include logic statements, such as loops and conditional statements, as well as variables and filters.
+* Some common use cases of Ansible templates include:
+    * Generating configuration files
+    * Managing application settings
+    * Generating scripts
+
+### 10. Ansible Facts
 * Ansible facts are variables that are automatically discovered by Ansible from a managed host.
 * Facts are pulled by the setup module and contain useful information stored into variables that administrators can reuse.
 * Fact variables can be used as part of playbooks, in conditionals, loops, or any other dynamic statement that depends on a value for a managed host.
@@ -84,75 +118,29 @@ An inventory is a text file listing hostnames usually grouped by functionality. 
 
     #### Displaying facts from a hosts:
     
-    $ *ansible host-pattern -m setup*
-    
-### 7. Ansible Roles
-* Roles provide Ansible with a way to load tasks, handlers, and variables from external files.
-* Static files and templates can also be associated and referenced by a role.
-* Roles can be written so they are general purpose and can be reused.
-* Some basic advantages of roles:
-  1. Roles group content, allowing easy sharing of code with others.
-  2. Roles can be written that define the essential elements of a system type: web server, database server, git repository, or other purpose.
-  3. Roles make larger projects more manageable.
-  4. Roles can be developed in parallel by different administrators.
-  
-###  8. Ansible Galaxy
-* Ansible Galaxy [https://galaxy.ansible.com] is a public library of Ansible roles written by a variety of Ansible administrators and users. 
-* It is an archive that contains thousands of Ansible roles and it has a searchable database that helps Ansible users identify roles that might help   them accomplish an administrative task. 
-* It includes links to documentation and videos for new Ansible users and role developers.
-* Ansible-galaxy search subcommand searches Ansible Galaxy for the string specified as an argument. The --author, --platforms, and --galaxy-tags options can be used to narrow the search results.
+```bash
+ansible host-pattern -m setup
+```
 
-### 9. Ansible Vault
-Vault is used to protect sensitive data in your playbooks.
+### 11. Ansible Handlers
+* Handlers are tasks that are triggered by another task, such as restarting a service after a configuration file has been updated.
+* Handlers are useful when you need to perform a specific action only when a change has been made. For example, if a configuration file is modified, you might want to restart a service that is using that configuration file.
+* Handlers have a unique name and can be triggered by using the "notify" keyword in a task.
+
+### 12. Ansible Plugins
+* Plugins are used to extend Ansible's functionality, such as adding new modules, inventory sources, and connection types.
+* Plugins can be of different types, such as action, connection, inventory, and lookup plugins.
+
+### 13. Ansible Vault
+* Vault is used to protect sensitive data in your playbooks.
 
   * To create a new encrypted data file, run the following command:
-    *  $ _ansible-vault create secret.yml_
+```bash
+ansible-vault create secret.yml
+```
     
 Similarly we can use edit, encrypt, decrypt and rekey, for more details on how to work with vault files, check manual page:
 
-   $ _man ansible-vault_
-
-
-
-
-
-
-  
-  
-  
-  
-  
-    
-    
-
-
-  
-  
-
-    
-    
-
-
-
-
-
-
-
-
- 
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
+```bash
+man ansible-vault
+```
